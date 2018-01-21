@@ -42,12 +42,12 @@ const scanSync = require("scan-dir-recursive/sync");
 ### Promise
 It is possible to use the async version with a javascript `Promise`.
 ```javascript
-	const scan = require("scan-dir-recursive/promise");
+const scan = require("scan-dir-recursive/promise");
 
-	scan(__dirname, IGNORED)
-		.then(function(files){
-			console.log("Files:\n", files.join("\n"));
-		});
+scan(__dirname, IGNORED)
+	.then(function(files){
+		console.log("Files:\n", files.join("\n"));
+	});
 ```
 Notice that the `done` parameter is omitted since it is replaced by the `Promise`.
 
@@ -60,27 +60,27 @@ Returns a `Promise` that receive an Array of filenames when it resolve
 ### Absolute path or relative path
 By default, the files are listed with their absolute path. It is possible to get a path relative to the specified directory by using the _relative_ version of the script.
 ```javascript
-	const DIR = "/home/myUser/myProject/src";
+const DIR = "/home/myUser/myProject/src";
 
-	// Absolute path
+// Absolute path
 
-	const absolute = require("scan-dir-recursive");
+const absolute = require("scan-dir-recursive");
 
-	absolute(DIR, function(files){
-		console.log(files.join("\n"));
-		// "/home/myUser/myProject/src/file.js"
-		// "/home/myUser/myProject/src/someDir/other.js"
-	});
+absolute(DIR, function(files){
+	console.log(files.join("\n"));
+	// "/home/myUser/myProject/src/file.js"
+	// "/home/myUser/myProject/src/someDir/other.js"
+});
 
-	// Relative path
+// Relative path
 
-	const relative = require("scan-dir-recursive/relative");
+const relative = require("scan-dir-recursive/relative");
 
-	relative(DIR, function(files){
-		console.log(files.join("\n"));
-		// "file.js"
-		// "someDir/other.js"
-	});
+relative(DIR, function(files){
+	console.log(files.join("\n"));
+	// "file.js"
+	// "someDir/other.js"
+});
 
 ```
 
