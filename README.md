@@ -37,7 +37,7 @@ const scanSync = require("scan-dir-recursive/sync");
 #### scanDirRecursive(directory, done, [ignore])
 - `directory:String` - Absolute path to the directory to scan
 - `done:Function` - Function to call when the scan is complete. Receive an Array of filenames as an argument
-- `[ignore:Array]` - An Array of absolute path to ignore
+- `[ignore:Array]` - Array of [files to ignore](https://github.com/polopelletier/scan-dir-recursive#ignoring-files)
 
 ### Promise
 It is possible to use the async version with a javascript `Promise`.
@@ -53,7 +53,7 @@ Notice that the `done` parameter is omitted since it is replaced by the `Promise
 
 #### scanDirRecursive(directory, [ignore])
 - `directory:String` - Absolute path to the directory to scan
-- `[ignore:Array]` - An Array of absolute path to ignore
+- `[ignore:Array]` - Array of [files to ignore](https://github.com/polopelletier/scan-dir-recursive#ignoring-files)
 
 Returns a `Promise` that receive an Array of filenames when it resolve
 
