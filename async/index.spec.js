@@ -1,12 +1,12 @@
 
-const utils = require("./utils");
+const utils = require("../test/utils");
 const DIR = utils.DIR;
 const IGNORED = utils.IGNORED;
 
 describe("async", function() {
 
 	describe("absolute", function(){
-		const scanDirRecursive = requireSrc("async");
+		const scanDirRecursive = require("./index");
 
 		const accumulator = utils.createAccumulator();
 
@@ -40,7 +40,7 @@ describe("async", function() {
 	});
 
 	describe("relative", function(){
-		const scanDirRecursive = requireSrc("async/relative");
+		const scanDirRecursive = require("./relative");
 
 		const accumulator = utils.createAccumulator(false);
 
