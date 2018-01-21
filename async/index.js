@@ -1,6 +1,8 @@
 const path = require("path");
 const fs = require("fs");
 
+const shouldIgnore = require("../utils/shouldIgnore");
+
 function scanDirRecursive(dir, done, ignore = []){
 	fs.readdir(dir, function(err, files){
 		var i = -1;
@@ -26,7 +28,7 @@ function scanDirRecursive(dir, done, ignore = []){
 		function processFile(file){
 			const filename = path.resolve(dir, file);
 
-			if(ignore.indexOf(filename) != -1){
+			if(shouldIgnore(filename, ignore)){
 				nextFile();
 				return; // Skip if in ignore list
 			}

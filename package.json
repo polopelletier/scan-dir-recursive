@@ -4,8 +4,8 @@
   "description": "List all files included in a directory recursively",
   "main": "index.js",
   "scripts": {
-    "coverage": "istanbul cover _mocha async/index.spec.js sync/index.spec.js promise/index.spec.js -- -r 'test/bootstrap.js'",
-    "test": "mocha async/index.spec.js sync/index.spec.js promise/index.spec.js -r 'test/bootstrap.js'"
+    "coverage": "istanbul cover _mocha async/index.spec.js sync/index.spec.js promise/index.spec.js utils/index.spec.js -- -r 'test/bootstrap.js'",
+    "test": "mocha async/index.spec.js sync/index.spec.js promise/index.spec.js utils/*.spec.js -r 'test/bootstrap.js'"
   },
   "repository": {
     "type": "git",
@@ -26,5 +26,8 @@
     "chai": "^4.1.2",
     "istanbul": "^0.4.5",
     "mocha": "^5.0.0"
+  },
+  "dependencies": {
+    "chalk": "^2.3.0"
   }
 }

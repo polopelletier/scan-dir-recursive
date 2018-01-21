@@ -2,6 +2,7 @@
 const utils = require("../test/utils");
 const DIR = utils.DIR;
 const IGNORED = utils.IGNORED;
+const IGNORED_GLOB = utils.IGNORED_GLOB;
 
 describe("sync", function() {
 
@@ -27,6 +28,11 @@ describe("sync", function() {
 			scanDirRecursive(DIR, accumulator.setFiles, IGNORED);
 			accumulator.assertMatch(true);
 		});
+
+		it("Can ignore some files with glob pattern", function() {
+			scanDirRecursive(DIR, accumulator.setFiles, IGNORED_GLOB);
+			accumulator.assertMatch(true);
+		});
 	});
 
 	describe("relative", function(){
@@ -49,6 +55,11 @@ describe("sync", function() {
 
 		it("Can ignore some files", function() {
 			scanDirRecursive(DIR, accumulator.setFiles, IGNORED);
+			accumulator.assertMatch(true);
+		});
+
+		it("Can ignore some files with glob pattern", function() {
+			scanDirRecursive(DIR, accumulator.setFiles, IGNORED_GLOB);
 			accumulator.assertMatch(true);
 		});
 	});

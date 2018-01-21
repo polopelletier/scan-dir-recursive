@@ -19,7 +19,11 @@ const FILES_IGNORED = [
 ];
 
 module.exports.IGNORED = [
-	path.resolve(DIR, "b/b1")
+	"b/b1"
+];
+
+module.exports.IGNORED_GLOB = [
+	"**/b/b1/**"
 ];
 
 module.exports.createAccumulator = function(absolute = true) {

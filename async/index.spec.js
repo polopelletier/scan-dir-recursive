@@ -2,6 +2,7 @@
 const utils = require("../test/utils");
 const DIR = utils.DIR;
 const IGNORED = utils.IGNORED;
+const IGNORED_GLOB = utils.IGNORED_GLOB;
 
 describe("async", function() {
 
@@ -37,6 +38,16 @@ describe("async", function() {
 
 			scanDirRecursive(DIR, onComplete, IGNORED);
 		});
+
+		it("Can ignore some files with glob pattern", function(done) {
+			function onComplete(files){
+				accumulator.setFiles(files);
+				accumulator.assertMatch(true);
+				done();
+			}
+
+			scanDirRecursive(DIR, onComplete, IGNORED_GLOB);
+		});
 	});
 
 	describe("relative", function(){
@@ -52,7 +63,7 @@ describe("async", function() {
 			assert.isFunction(scanDirRecursive);
 		});
 
-		it("Can list all files recursively", function() {
+		it("Can list all files recursively", function(done) {
 			function onComplete(files){
 				accumulator.setFiles(files);
 				accumulator.assertMatch();
@@ -62,7 +73,7 @@ describe("async", function() {
 			scanDirRecursive(DIR, onComplete);
 		});
 
-		it("Can ignore some files", function() {
+		it("Can ignore some files", function(done) {
 			function onComplete(files){
 				accumulator.setFiles(files);
 				accumulator.assertMatch(true);
@@ -70,6 +81,16 @@ describe("async", function() {
 			}
 
 			scanDirRecursive(DIR, onComplete, IGNORED);
+		});
+
+		it("Can ignore some files with glob pattern", function(done) {
+			function onComplete(files){
+				accumulator.setFiles(files);
+				accumulator.assertMatch(true);
+				done();
+			}
+
+			scanDirRecursive(DIR, onComplete, IGNORED_GLOB);
 		});
 	});
 });

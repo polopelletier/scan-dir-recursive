@@ -2,6 +2,7 @@
 const utils = require("../test/utils");
 const DIR = utils.DIR;
 const IGNORED = utils.IGNORED;
+const IGNORED_GLOB = utils.IGNORED_GLOB;
 
 describe("promise", function() {
 
@@ -24,6 +25,8 @@ describe("promise", function() {
 					accumulator.setFiles(files);
 					accumulator.assertMatch();
 					done();
+				}).catch(function(err){
+					done(err);
 				});
 		});
 
@@ -33,6 +36,19 @@ describe("promise", function() {
 					accumulator.setFiles(files);
 					accumulator.assertMatch(true);
 					done();
+				}).catch(function(err){
+					done(err);
+				});
+		});
+
+		it("Can ignore some files with glob pattern", function(done) {
+			scanDirRecursive(DIR, IGNORED_GLOB)
+				.then(function(files) {
+					accumulator.setFiles(files);
+					accumulator.assertMatch(true);
+					done();
+				}).catch(function(err){
+					done(err);
 				});
 		});
 	});
@@ -56,6 +72,8 @@ describe("promise", function() {
 					accumulator.setFiles(files);
 					accumulator.assertMatch();
 					done();
+				}).catch(function(err){
+					done(err);
 				});
 		});
 
@@ -65,6 +83,19 @@ describe("promise", function() {
 					accumulator.setFiles(files);
 					accumulator.assertMatch(true);
 					done();
+				}).catch(function(err){
+					done(err);
+				});
+		});
+
+		it("Can ignore some files with glob pattern", function(done) {
+			scanDirRecursive(DIR, IGNORED_GLOB)
+				.then(function(files) {
+					accumulator.setFiles(files);
+					accumulator.assertMatch(true);
+					done();
+				}).catch(function(err){
+					done(err);
 				});
 		});
 	});
