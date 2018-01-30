@@ -3,7 +3,9 @@ const fs = require("fs");
 
 const shouldIgnore = require("../utils/shouldIgnore");
 
-function scanDirRecursive(dir, done, ignore = []){
+function scanDirRecursive(dir, done, ignore/* = []*/){
+	if(ignore == undefined) ignore = [];
+
 	fs.readdir(dir, function(err, files){
 		var i = -1;
 		
