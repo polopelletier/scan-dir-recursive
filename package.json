@@ -3,6 +3,9 @@
   "version": "1.0.4",
   "description": "List all files included in a directory recursively",
   "main": "index.js",
+  "engines" : { 
+    "node" : ">=4.0.0"
+  },
   "scripts": {
     "coverage": "istanbul cover _mocha async/index.spec.js sync/index.spec.js promise/index.spec.js utils/index.spec.js -- -r 'test/bootstrap.js'",
     "test": "mocha async/index.spec.js sync/index.spec.js promise/index.spec.js utils/*.spec.js -r 'test/bootstrap.js'"
