@@ -3,7 +3,9 @@ const fs = require("fs");
 
 const shouldIgnore = require("../utils/shouldIgnore");
 
-function scanDirRecursive(dir, addFile, ignore = []) {
+function scanDirRecursive(dir, addFile, ignore/* = []*/) {
+	if(ignore == undefined) ignore = [];
+	
 	const files = fs.readdirSync(dir);
 
 	files.forEach(function(file) {
@@ -23,7 +25,9 @@ function scanDirRecursive(dir, addFile, ignore = []) {
 	});
 }
 
-module.exports = function(dir, done, ignore = []){
+module.exports = function(dir, done, ignore/* = []*/){
+	if(ignore == undefined) ignore = [];
+
 	const files = [];
 
 	function addFile(filename){
