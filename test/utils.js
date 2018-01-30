@@ -26,7 +26,9 @@ module.exports.IGNORED_GLOB = [
 	"**/b/b1/**"
 ];
 
-module.exports.createAccumulator = function(absolute = true) {
+module.exports.createAccumulator = function(absolute/* = true*/) {
+	if(absolute == undefined) absolute = true;
+
 	var files;
 
 	return {
@@ -37,7 +39,8 @@ module.exports.createAccumulator = function(absolute = true) {
 		setFiles: function(provided){
 			files = provided;
 		},
-		assertMatch: function(hasIgnore = false){
+		assertMatch: function(hasIgnore/* = false*/){
+			if(hasIgnore == undefined) hasIgnore = false;
 			
 			var expected = hasIgnore ? FILES_IGNORED : FILES;
 			if(absolute){
