@@ -1,6 +1,6 @@
 {
   "name": "scan-dir-recursive",
-  "version": "1.0.8",
+  "version": "1.0.9",
   "description": "List all files included in a directory recursively",
   "main": "index.js",
   "engines" : { 
