@@ -10,4 +10,5 @@ type AddFileFunction = (filename: string) => void;
  * @param {AddFileFunction} scanDirRecursive.addFile - Function called every time a file is found
  * @param {string[] =   []} scanDirRecursive.ignore - List of files to ignore
  */
-export default (dir: string, addFile: AddFileFunction, ignore: string[]  = []): void
+type exported = (dir: string, addFile: AddFileFunction, ignore?: string[]) => void;
+export = exported;

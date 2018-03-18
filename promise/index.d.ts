@@ -4,4 +4,5 @@
  * @param {string[] =   []} ignore - List of files to ignore
  * @returns A promise that resolve with a list of all filenames found
  */
-export default (dir: string, ignore: string[] = []): Promise<string[]>
+type exported = (dir: string, ignore?: string[]) => Promise<string[]>;
+export = exported;
