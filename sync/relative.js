@@ -2,16 +2,11 @@ const path = require("path");
 
 const absolute = require("./index");
 
-module.exports = function(dir, done, ignore/* = []*/) {
+module.exports = function(dir, ignore/* = []*/) {
 	if(ignore == undefined) ignore = [];
-	
-	function onComplete(files){
-		files = files.map(function(filename){
+
+	return absolute(dir, ignore)
+		.map(function(filename){
 			return path.relative(dir, filename);
 		});
-
-		done(files);
-	}
-
-	absolute(dir, onComplete, ignore);
-}
+};

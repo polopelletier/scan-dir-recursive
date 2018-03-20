@@ -20,17 +20,20 @@ describe("sync", function() {
 		});
 
 		it("Can list all files recursively", function() {
-			scanDirRecursive(DIR, accumulator.setFiles);
+			const files = scanDirRecursive(DIR);
+			accumulator.setFiles(files);
 			accumulator.assertMatch();
 		});
 
 		it("Can ignore some files", function() {
-			scanDirRecursive(DIR, accumulator.setFiles, IGNORED);
+			const files = scanDirRecursive(DIR, IGNORED);
+			accumulator.setFiles(files);
 			accumulator.assertMatch(true);
 		});
 
 		it("Can ignore some files with glob pattern", function() {
-			scanDirRecursive(DIR, accumulator.setFiles, IGNORED_GLOB);
+			const files = scanDirRecursive(DIR, IGNORED_GLOB);
+			accumulator.setFiles(files);
 			accumulator.assertMatch(true);
 		});
 	});
@@ -49,17 +52,20 @@ describe("sync", function() {
 		});
 
 		it("Can list all files recursively", function() {
-			scanDirRecursive(DIR, accumulator.setFiles);
+			const files = scanDirRecursive(DIR);
+			accumulator.setFiles(files);
 			accumulator.assertMatch();
 		});
 
 		it("Can ignore some files", function() {
-			scanDirRecursive(DIR, accumulator.setFiles, IGNORED);
+			const files = scanDirRecursive(DIR, IGNORED);
+			accumulator.setFiles(files);
 			accumulator.assertMatch(true);
 		});
 
 		it("Can ignore some files with glob pattern", function() {
-			scanDirRecursive(DIR, accumulator.setFiles, IGNORED_GLOB);
+			const files = scanDirRecursive(DIR, IGNORED_GLOB);
+			accumulator.setFiles(files);
 			accumulator.assertMatch(true);
 		});
 	});

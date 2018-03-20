@@ -25,7 +25,7 @@ function scanDirRecursive(dir, addFile, ignore/* = []*/) {
 	});
 }
 
-module.exports = function(dir, done, ignore/* = []*/){
+module.exports = function(dir, ignore/* = []*/){
 	if(ignore == undefined) ignore = [];
 
 	const files = [];
@@ -36,5 +36,5 @@ module.exports = function(dir, done, ignore/* = []*/){
 
 	scanDirRecursive(dir, addFile, ignore);
 
-	done(files);
-}
+	return files;
+};
